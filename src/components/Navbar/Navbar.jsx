@@ -1,9 +1,11 @@
 import React from 'react';
 import './Navbar.css';
+// import Data from './components/Data';
 
 
 function Navbar() {
     return (
+       
         <div className="navbar">
            <ul>
               <li>Eyes</li>
@@ -16,7 +18,6 @@ function Navbar() {
               <li>Bath and Body</li>
               <li>Beauty Blog</li>
            </ul>
-
         </div>
     );
 }
