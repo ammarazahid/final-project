@@ -1,7 +1,10 @@
 import React from 'react';
 import './Main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Carousel from 'Carousel';
+import Carousel from 'react-bootstrap/Carousel';
+import slide1 from '../images/pic1.webp';
+import slide2 from '../images/pic2.jpg';
+import slide3 from '../images/pic3.jpg';
 
 
 function Main(){
@@ -11,7 +14,7 @@ function Main(){
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="holder.js/800x400?text=First slide&bg=373940"
+      src={slide1}
       alt="First slide"
     />
     <Carousel.Caption>
@@ -22,7 +25,7 @@ function Main(){
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="holder.js/800x400?text=Second slide&bg=282c34"
+      src={slide2}
       alt="Third slide"
     />
 
@@ -34,16 +37,16 @@ function Main(){
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="holder.js/800x400?text=Third slide&bg=20232a"
+      src={slide3}
       alt="Third slide"
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
+     <h3>Third slide label</h3>
+     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+  </Carousel.Caption>
+ </Carousel.Item>
+</Carousel> 
      </div>
  );
  }
