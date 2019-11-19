@@ -5,6 +5,12 @@ import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
+import Pencil from './components/Pencil';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 
 
@@ -22,6 +28,10 @@ class App extends Component {
     axios.get('https://makeup-api.herokuapp.com/api/v1/products.json')
       .then((response) => {
         // handle success
+        response.data.map(item => {
+          console.log(item)
+        })
+
         this.setState({
           product: response.data
         })
@@ -34,17 +44,25 @@ class App extends Component {
 
   }
 
-  render(){
+  render() {
     console.log(this.state.product);
-    console.log()
-  return (
-    <div className="App">
-     <Header />
-     <Navbar />
-     <Main />
-    </div>
-  );
-}
+    return (
+      <div className="App">
+        <Router>
+          <div>
+            <Switch>
+              <Route exact path="/">
+                <Pencil />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+        <Header />
+        <Navbar />
+        <Main />
+      </div>
+    );
+  }
 }
 
 export default App;

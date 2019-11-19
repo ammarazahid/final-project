@@ -1,6 +1,12 @@
 import React from 'react';
 import './Navbar.css';
 // import Data from './components/Data';
+import {
+    BrowserRouter as Router,
+    Link
+  } from "react-router-dom";
+  
+
 
 
 function Navbar() {
@@ -8,7 +14,7 @@ function Navbar() {
        
         <div className="navbar">
            <ul>
-              <li>Eyes</li>
+           <li><Link to="/">Pencil</Link></li>
               <li>Body Lotion</li>
               <li>Eye Brows</li>
               <li>Brands</li>
