@@ -22,6 +22,7 @@ class App extends Component {
     }
   }
 
+
   componentDidMount() {
 
     // Make a request for a user with a given ID
@@ -51,8 +52,10 @@ class App extends Component {
         <Router>
           <div>
             <Switch>
-              <Route exact path="/">
-                <Pencil />
+              <Route exact path="/"
+              render={() => (
+                <Pencil data={this.state.product}/>
+              )}>
               </Route>
             </Switch>
           </div>

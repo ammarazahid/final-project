@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-// import Data from './components/Data';
+import Pencil from './components/Pencil';
 import {
     BrowserRouter as Router,
     Link
