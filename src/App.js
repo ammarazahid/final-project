@@ -5,7 +5,8 @@ import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
-import Pencil from './components/Pencil';
+import Pencil from './components/Pencil/Pencil';
+import Eyes from './components/Eyes/Eyes';
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,7 +19,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      product: []
+      pencil: [],
+      eyes: [],
     }
   }
 
@@ -29,14 +31,18 @@ class App extends Component {
     axios.get('https://makeup-api.herokuapp.com/api/v1/products.json')
       .then((response) => {
         // handle success
-        response.data.map(item => {
-          console.log(item)
+        const pencil = response.data.filter(item => {
+          return item.category === 'pencil'
+        })
+
+        const eyes = response.data.filter(item => {
+          return item.category === 'eyes'
         })
 
         this.setState({
-          product: response.data
+          pencil: pencil,
+          eyes: eyes,
         })
-        console.log(response.data);
       })
       .catch((error) => {
         // handle error
@@ -46,23 +52,28 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.product);
+    const pencil = this.state.pencil;
+    const eyes = this.state.eyes;
+
     return (
       <div className="App">
+       <Header />
         <Router>
+              <Navbar />
           <div>
             <Switch>
-              <Route exact path="/"
-              render={() => (
-                <Pencil data={this.state.product}/>
-              )}>
+              <Route exact path="/">
+                <Main />
+              </Route>
+              <Route exact path="/Pencil">
+                <Pencil data={pencil} />
+              </Route>
+              <Route exact path="/Eyes">
+                <Eyes data={eyes} />
               </Route>
             </Switch>
           </div>
         </Router>
-        <Header />
-        <Navbar />
-        <Main />
       </div>
     );
   }

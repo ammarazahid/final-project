@@ -1,6 +1,7 @@
 import React from 'react';
 import './Navbar.css';
-import Pencil from './components/Pencil';
+import Pencil from '../Pencil/Pencil';
+import Eyes from '../Eyes/Eyes';
 import {
     BrowserRouter as Router,
     Link
@@ -11,11 +12,12 @@ import {
 
 function Navbar() {
     return (
-       
+      
         <div className="navbar">
            <ul>
-           <li><Link to="/">Pencil</Link></li>
-              <li>Body Lotion</li>
+           <li><Link to="/Pencil">Pencil</Link></li>
+           <li><Link to="/Eyes">Eyes</Link></li>
+              
               <li>Eye Brows</li>
               <li>Brands</li>
               <li>Make Up</li>
