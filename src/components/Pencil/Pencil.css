@@ -1,0 +1,15 @@
+.pencil-cards > .card{
+    margin: 20px;
+}
+
+.pencil-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pencil-cards > .image{
+   height: 200px;
+   width: 200px;
+}

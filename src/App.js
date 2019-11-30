@@ -31,6 +31,7 @@ class App extends Component {
     axios.get('https://makeup-api.herokuapp.com/api/v1/products.json')
       .then((response) => {
         // handle success
+        console.log(response.data);
         const pencil = response.data.filter(item => {
           return item.category === 'pencil'
         })
